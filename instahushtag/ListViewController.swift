@@ -13,6 +13,13 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
 //    @IBOutlet var titlename : UILabel!
 //    @IBOutlet var subtitle : UILabel!
     
+    let userDefaults = UserDefaults.standard
+    
+      
+    
+    
+    
+    
     var index : Int = 0
     var tag : Int = 0
     
@@ -27,6 +34,9 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     //中身を入れるための配列
     var nakamiArray = [String]()
+    
+    //お気に入りを入れるための配列
+    var favArray = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,10 +108,12 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBAction func fav(button: UIButton){
         
+        userDefaults .set(true, forKey: "Key")
+        userDefaults.set(1, forKey: "Key")
+        userDefaults .set("TEST", forKey: "Key")
         
-        print(nakamiArray[index])
-        print("をお気に入りに追加しました")
-    
+        
+        favArray.append()
         
         button.setTitle("❤︎", for: UIControlState.normal)
     }
@@ -124,3 +136,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     */
 
 }
+
+
+var hushtags  : [String:String] = ["ペット":"＃pet＃petsgram#petscorner#pets_of_instagram#pets#animal#animals","猫":"#cat#catstagram#cats#catsofinstagram#catlover#kitten#kittens#mycat","犬":"#dog#dogs#dogs_of_instagram#pup#puppy#dogstagram#doglover#dogsoftheday#lobepuppies","食べ物":"#food #foodlovers #foodie #foodpic#delicious #foodoftheday#foodgasm#delish #yummyfood #yum #yummy #delicious #tasty #eat #hungry #foodpics #fresh #tasty #eating#instafood","ラーメン":"#ramen#ramennoodles#ramensamyang#japaneserestaurant#ラーメン,”すし”:”#sushi#suhitime#sushirolle#sushi🍣#sushis#sushilovers","サッカー":"#soccer#soccermom#soccergame#soccerball#soccerlife#football#footballgeme#footbalmom#footballgames#footballseason#footballboots#footballplayer","野球":"#baseball#baseballcap#baseballmom#baseballtee#baseballlife#baseballgame","水泳":"#swimming#swimmingpool#swimminhlessons#swimmingtime#swimwear#swimsuit#swimwearph#swim#swimmer#swimbikerun#swiming","テニス":"#tennis#tennislobe#tennistime#tennisball#tennislofe#teniscourt#tennisplayer","バドミントン":"#badminton#badmintontimr#badmintonplayer#badmintonlovers","バスケ":"#basketball#basketballshoes#baskets#basketbol#basketballgeme#basketballneversports","春":"#spring#springtime#springday#springstyle#spring2017#springsummer#springishere#springfever"
+    ,"夏":"#summer#summers#summer17#summerfun#hotday#summerday#summerbody#summerhair#summertime#summer2017#summervibes#summerstyle#summerfashion#summerishere","日本":"#japan#japanese#japantrip#japaneselife","東京":"#tokyo#tokyolife#tokyogholul#japan#東京",
+     "日本食":"#日本食#日本#和食#japaneselife#japanesestyle#japanesefood#japan#japanese","イタリアン":"#イタリアン#イタリア#italia#talian#talianfood#italiancooking","フレンチ”:”#フレンチ#france#french","タイ料理":"#タイ料理#タイ#タイフード#thai#thaifood","インド料理”:”#インド#インド料理#india#indian#indianfood","中華":"#中華#中華料理#中国#china#chinese#chinesefood#chinesestyle","韓国料理":"#韓国#korea#koreanfood#korean#韓国料理"]

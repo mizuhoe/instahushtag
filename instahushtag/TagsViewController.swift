@@ -10,6 +10,8 @@ import UIKit
 
 class TagsViewController: UIViewController {
     
+    let userDefaults = UserDefaults.standard
+    
     @IBOutlet var titleTextfield: UITextField!
     var index : Int = 0
     @IBOutlet var textView: UITextView!
@@ -21,6 +23,9 @@ class TagsViewController: UIViewController {
     var subTitleArray = [String]()
     
     var nakamiArray = [String]()
+    
+    //ふぁぼを入れるための配列
+    var favArray = [String]()
     
 
     override func viewDidLoad() {
@@ -63,6 +68,19 @@ class TagsViewController: UIViewController {
         let url = NSURL(string:"instagram://camera")
         UIApplication.shared.openURL(url as! URL)
     }
+    
+    @IBAction func fav(button: UIButton){
+        
+        userDefaults .set(true, forKey: "Key")
+        userDefaults.set(1, forKey: "Key")
+        userDefaults .set("TEST", forKey: "Key")
+        
+        
+        favArray.append()
+        
+        button.setTitle("❤︎", for: UIControlState.normal)
+    }
+
 
 
     /*
