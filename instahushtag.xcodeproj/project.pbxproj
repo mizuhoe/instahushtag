@@ -14,6 +14,10 @@
 		0FF451F41DCB47A200F62FED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF451F21DCB47A200F62FED /* LaunchScreen.storyboard */; };
 		0FF451FF1DCB47A200F62FED /* instahushtagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF451FE1DCB47A200F62FED /* instahushtagTests.swift */; };
 		0FF4520A1DCB47A200F62FED /* instahushtagUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF452091DCB47A200F62FED /* instahushtagUITests.swift */; };
+		0FF452181DCB5AD900F62FED /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF452171DCB5AD900F62FED /* FavoriteViewController.swift */; };
+		0FF4521A1DCB5B0F00F62FED /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF452191DCB5B0F00F62FED /* GenreViewController.swift */; };
+		0FF4521C1DCB5B1E00F62FED /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4521B1DCB5B1E00F62FED /* ListViewController.swift */; };
+		0FF4521E1DCB5B3100F62FED /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4521D1DCB5B3100F62FED /* TagsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		0FF452051DCB47A200F62FED /* instahushtagUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instahushtagUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF452091DCB47A200F62FED /* instahushtagUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instahushtagUITests.swift; sourceTree = "<group>"; };
 		0FF4520B1DCB47A200F62FED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0FF452171DCB5AD900F62FED /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		0FF452191DCB5B0F00F62FED /* GenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		0FF4521B1DCB5B1E00F62FED /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		0FF4521D1DCB5B3100F62FED /* TagsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,10 @@
 				0FF451EB1DCB47A100F62FED /* ViewController.swift */,
 				0FF451ED1DCB47A100F62FED /* Main.storyboard */,
 				0FF451F01DCB47A200F62FED /* Assets.xcassets */,
+				0FF452191DCB5B0F00F62FED /* GenreViewController.swift */,
+				0FF4521B1DCB5B1E00F62FED /* ListViewController.swift */,
+				0FF452171DCB5AD900F62FED /* FavoriteViewController.swift */,
+				0FF4521D1DCB5B3100F62FED /* TagsViewController.swift */,
 				0FF451F21DCB47A200F62FED /* LaunchScreen.storyboard */,
 				0FF451F51DCB47A200F62FED /* Info.plist */,
 			);
@@ -193,6 +205,7 @@
 				TargetAttributes = {
 					0FF451E51DCB47A100F62FED = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = K6GMXV8459;
 						ProvisioningStyle = Automatic;
 					};
 					0FF451F91DCB47A200F62FED = {
@@ -259,8 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FF4521A1DCB5B0F00F62FED /* GenreViewController.swift in Sources */,
 				0FF451EC1DCB47A100F62FED /* ViewController.swift in Sources */,
+				0FF452181DCB5AD900F62FED /* FavoriteViewController.swift in Sources */,
+				0FF4521C1DCB5B1E00F62FED /* ListViewController.swift in Sources */,
 				0FF451EA1DCB47A100F62FED /* AppDelegate.swift in Sources */,
+				0FF4521E1DCB5B3100F62FED /* TagsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,7 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6GMXV8459;
 				INFOPLIST_FILE = instahushtag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.instahushtag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,7 +441,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6GMXV8459;
 				INFOPLIST_FILE = instahushtag/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.litech.instahushtag;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -503,6 +524,7 @@
 				0FF452101DCB47A200F62FED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FF452111DCB47A200F62FED /* Build configuration list for PBXNativeTarget "instahushtagTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +533,7 @@
 				0FF452131DCB47A200F62FED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0FF452141DCB47A200F62FED /* Build configuration list for PBXNativeTarget "instahushtagUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +542,7 @@
 				0FF452161DCB47A200F62FED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

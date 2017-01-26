@@ -9,6 +9,8 @@
 import UIKit
 
 class GenreViewController: UIViewController {
+    
+    var tag: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,24 @@ class GenreViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func toNext(sender: UIButton){
+        //ボタンの情報をもらう
+        //ボタンの情報を保存
+        tag = sender.tag
+        
+        //画面遷移する
+        performSegue(withIdentifier: "toList", sender: nil)
+        
+        print(tag)
+        
+       
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let listViewController : ListViewController = segue.destination as! ListViewController
+        listViewController.tag = tag
     }
     
 
