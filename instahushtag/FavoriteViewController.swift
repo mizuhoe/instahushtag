@@ -12,6 +12,9 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var index : Int = 0
     
+    let userDefaults = UserDefaults.standard
+    
+    
     //StoryBoardで扱うTable Viewを宣言
     @IBOutlet var table:UITableView!
     
@@ -30,11 +33,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         table.dataSource = self
         table.delegate = self
         
-        //listNameArrayに名前を入れていく
-        listNameArray = ["日本食","イタリアン","フレンチ","タイ","インド","中華","韓国"]
-        subTitleArray = ["#Japanese","#Italian","#French","#Thai","#Indian","#Chiniese","#Korean"]
         
-        nakamiArray = ["#日本食#日本#和食#japaneselife#japanesestyle#japanesefood#japan#japanese","#イタリアン#イタリア#italia#talian#talianfood#italiancooking","#フレンチ#france#french","#タイ料理#タイ#タイフード#thai#thaifood","#インド#インド料理#india#indian#indianfood","#中華#中華料理#中国#china#chinese#chinesefood#chinesestyle","#韓国#korea#koreanfood#korean#韓国料理"]
         // Do any additional setup after loading the view.
     }
 

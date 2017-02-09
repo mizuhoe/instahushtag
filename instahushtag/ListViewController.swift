@@ -33,6 +33,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     //お気に入りを入れるための配列
     var favArray = [String]()
+    
+    var isFav = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,14 +110,21 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBAction func fav(button: UIButton){
         
-        userDefaults .set(true, forKey: "Key")
-        userDefaults.set(1, forKey: "Key")
-        userDefaults .set("TEST", forKey: "Key")
         
         
-       // favArray.append()
+        favArray.append()
+
         
-        button.setTitle("❤︎", for: UIControlState.normal)
+        if isFav == false {
+            button.setTitle("❤︎", for: UIControlState.normal)
+            isFav = true
+        }else if isFav == true {
+            button.setTitle("♡",for:UIControlState.normal)
+            isFav = false
+        }
+        userDefaults .set(favArray, forKey: "favArray")
+        
+
     }
 
 

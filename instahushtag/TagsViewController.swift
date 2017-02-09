@@ -31,6 +31,8 @@ class TagsViewController: UIViewController {
         
          titleTextfield.text = titleName
         textView.text = nakami
+        
+        
 
         
     }
