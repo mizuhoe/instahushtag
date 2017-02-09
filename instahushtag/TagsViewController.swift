@@ -16,16 +16,12 @@ class TagsViewController: UIViewController {
     var index : Int = 0
     @IBOutlet var textView: UITextView!
     
-    //タイトルを入れるための配列
-    var listNameArray = [String]()
-    
-    //サブタイトルを入れるための配列
-    var subTitleArray = [String]()
-    
-    var nakamiArray = [String]()
-    
-    //ふぁぼを入れるための配列
+     //ふぁぼを入れるための配列
     var favArray = [String]()
+    
+    var titleName : String?
+    var nakami : String?
+    
     
 
     override func viewDidLoad() {
@@ -33,15 +29,8 @@ class TagsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        
-        listNameArray = ["日本食","イタリアン","フレンチ","タイ","インド","中華","韓国"]
-        
-        subTitleArray = ["#Japanese","#Italian","#French","#Thai","#Indian","#Chiniese","#Korean"]
-        
-        nakamiArray = ["#日本食#日本#和食#japaneselife#japanesestyle#japanesefood#japan#japanese","#イタリアン#イタリア#italia#talian#talianfood#italiancooking","#フレンチ#france#french","#タイ料理#タイ#タイフード#thai#thaifood","#インド#インド料理#india#indian#indianfood","#中華#中華料理#中国#china#chinese#chinesefood#chinesestyle","#韓国#korea#koreanfood#korean#韓国料理"]
-        
-        titleTextfield.text = listNameArray[index]
-        textView.text = nakamiArray[index]
+         titleTextfield.text = titleName
+        textView.text = nakami
 
         
     }
@@ -51,7 +40,7 @@ class TagsViewController: UIViewController {
     let pasteboard = UIPasteboard.general
     
     // 文字列をコピーする
-    pasteboard.setValue(nakamiArray[index], forPasteboardType: "public.text")
+    pasteboard.setValue(nakami ?? "", forPasteboardType: "public.text")
     
     // コピーした文字列を取り出し
     let copiedText = pasteboard.value(forPasteboardType: "public.text") as! String
@@ -76,7 +65,7 @@ class TagsViewController: UIViewController {
         userDefaults .set("TEST", forKey: "Key")
         
         
-        favArray.append()
+       // favArray.append()
         
         button.setTitle("❤︎", for: UIControlState.normal)
     }

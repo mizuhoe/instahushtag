@@ -15,11 +15,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     let userDefaults = UserDefaults.standard
     
-      
-    
-    
-    
-    
+ 
     var index : Int = 0
     var tag : Int = 0
     
@@ -45,13 +41,17 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         table.delegate = self
         
         //listNameArrayに名前を入れていく　
-        listNameArray = ["日本食","イタリアン","フレンチ","タイ","インド","中華","韓国"]
-        subTitleArray = ["#Japanese","#Italian","#French","#Thai","#Indian","#Chiniese","#Korean"]
+        listNameArray = categories["food"] ?? []
+        //subTitleArray = ["#Japanese","#Italian","#French","#Thai","#Indian","#Chiniese","#Korean"]
         
-        nakamiArray = ["#日本食#日本#和食#japaneselife#japanesestyle#japanesefood#japan#japanese","#イタリアン#イタリア#italia#talian#talianfood#italiancooking","#フレンチ#france#french","#タイ料理#タイ#タイフード#thai#thaifood","#インド#インド料理#india#indian#indianfood","#中華#中華料理#中国#china#chinese#chinesefood#chinesestyle","#韓国#korea#koreanfood#korean#韓国料理"]
+        nakamiArray = []
+        
+        for listName in listNameArray {
+            nakamiArray.append(hashtags[listName] ?? "")
+        }
         // Do any additional setup after loading the view.
         
-        
+        print(nakamiArray)
         
 //        titlename.text = listNameArray[index]
 //        subtitle.text = nakamiArray[index]
@@ -66,7 +66,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     //セルの数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //セルの数をsongNameArrayの要素の数にする
-        return listNameArray.count
+        return nakamiArray.count
     }
     
     //ID付きのセルを取得して、セル付属のtextLabelに「テスト」と表示させてみる。
@@ -76,7 +76,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         let titleLabel: UILabel = cell?.viewWithTag(1) as! UILabel
         titleLabel.text = listNameArray[indexPath.row]
         let subTitleLabel: UILabel = cell?.viewWithTag(2) as! UILabel
-        subTitleLabel.text = subTitleArray[indexPath.row]
+        subTitleLabel.text = nakamiArray[indexPath.row]
         return cell!
     
     }
@@ -94,7 +94,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBAction func copyButton(button : UIButton){
         
-                let pasteboard = UIPasteboard.general
+        let pasteboard = UIPasteboard.general
         
         // 文字列をコピーする
         pasteboard.setValue(nakamiArray[index], forPasteboardType: "public.text")
@@ -113,7 +113,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         userDefaults .set("TEST", forKey: "Key")
         
         
-        favArray.append()
+       // favArray.append()
         
         button.setTitle("❤︎", for: UIControlState.normal)
     }
@@ -122,7 +122,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let tagsViewController : TagsViewController = segue.destination as! TagsViewController
-        tagsViewController.index = index
+        tagsViewController.titleName = listNameArray[index]
+        tagsViewController.nakami = nakamiArray[index]
     }
 
     /*
@@ -136,8 +137,3 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     */
 
 }
-
-
-var hushtags  : [String:String] = ["ペット":"＃pet＃petsgram#petscorner#pets_of_instagram#pets#animal#animals","猫":"#cat#catstagram#cats#catsofinstagram#catlover#kitten#kittens#mycat","犬":"#dog#dogs#dogs_of_instagram#pup#puppy#dogstagram#doglover#dogsoftheday#lobepuppies","食べ物":"#food #foodlovers #foodie #foodpic#delicious #foodoftheday#foodgasm#delish #yummyfood #yum #yummy #delicious #tasty #eat #hungry #foodpics #fresh #tasty #eating#instafood","ラーメン":"#ramen#ramennoodles#ramensamyang#japaneserestaurant#ラーメン,”すし”:”#sushi#suhitime#sushirolle#sushi🍣#sushis#sushilovers","サッカー":"#soccer#soccermom#soccergame#soccerball#soccerlife#football#footballgeme#footbalmom#footballgames#footballseason#footballboots#footballplayer","野球":"#baseball#baseballcap#baseballmom#baseballtee#baseballlife#baseballgame","水泳":"#swimming#swimmingpool#swimminhlessons#swimmingtime#swimwear#swimsuit#swimwearph#swim#swimmer#swimbikerun#swiming","テニス":"#tennis#tennislobe#tennistime#tennisball#tennislofe#teniscourt#tennisplayer","バドミントン":"#badminton#badmintontimr#badmintonplayer#badmintonlovers","バスケ":"#basketball#basketballshoes#baskets#basketbol#basketballgeme#basketballneversports","春":"#spring#springtime#springday#springstyle#spring2017#springsummer#springishere#springfever"
-    ,"夏":"#summer#summers#summer17#summerfun#hotday#summerday#summerbody#summerhair#summertime#summer2017#summervibes#summerstyle#summerfashion#summerishere","日本":"#japan#japanese#japantrip#japaneselife","東京":"#tokyo#tokyolife#tokyogholul#japan#東京",
-     "日本食":"#日本食#日本#和食#japaneselife#japanesestyle#japanesefood#japan#japanese","イタリアン":"#イタリアン#イタリア#italia#talian#talianfood#italiancooking","フレンチ”:”#フレンチ#france#french","タイ料理":"#タイ料理#タイ#タイフード#thai#thaifood","インド料理”:”#インド#インド料理#india#indian#indianfood","中華":"#中華#中華料理#中国#china#chinese#chinesefood#chinesestyle","韓国料理":"#韓国#korea#koreanfood#korean#韓国料理"]

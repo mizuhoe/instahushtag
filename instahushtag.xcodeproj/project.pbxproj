@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F34DE0F1E43459700DD4B14 /* hashtags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34DE0E1E43459700DD4B14 /* hashtags.swift */; };
 		0FF451EA1DCB47A100F62FED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF451E91DCB47A100F62FED /* AppDelegate.swift */; };
 		0FF451EC1DCB47A100F62FED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF451EB1DCB47A100F62FED /* ViewController.swift */; };
 		0FF451EF1DCB47A100F62FED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF451ED1DCB47A100F62FED /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F34DE0E1E43459700DD4B14 /* hashtags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hashtags.swift; sourceTree = "<group>"; };
 		0FF451E61DCB47A100F62FED /* instahushtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instahushtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF451E91DCB47A100F62FED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF451EB1DCB47A100F62FED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				0FF451F01DCB47A200F62FED /* Assets.xcassets */,
 				0FF452191DCB5B0F00F62FED /* GenreViewController.swift */,
 				0FF4521B1DCB5B1E00F62FED /* ListViewController.swift */,
+				0F34DE0E1E43459700DD4B14 /* hashtags.swift */,
 				0FF452171DCB5AD900F62FED /* FavoriteViewController.swift */,
 				0FF4521D1DCB5B3100F62FED /* TagsViewController.swift */,
 				0FF451F21DCB47A200F62FED /* LaunchScreen.storyboard */,
@@ -277,6 +280,7 @@
 				0FF452181DCB5AD900F62FED /* FavoriteViewController.swift in Sources */,
 				0FF4521C1DCB5B1E00F62FED /* ListViewController.swift in Sources */,
 				0FF451EA1DCB47A100F62FED /* AppDelegate.swift in Sources */,
+				0F34DE0F1E43459700DD4B14 /* hashtags.swift in Sources */,
 				0FF4521E1DCB5B3100F62FED /* TagsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
