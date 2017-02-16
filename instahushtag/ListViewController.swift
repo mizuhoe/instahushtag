@@ -18,6 +18,8 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
  
     var index : Int = 0
     var tag : Int = 0
+    var key : String = ""
+    var nakami : String?
     
     //StoryBoardで扱うTable Viewを宣言
     @IBOutlet var table:UITableView!
@@ -34,7 +36,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     //お気に入りを入れるための配列
     var favArray = [String]()
     
-    var isFav = false
+    var isFavArray: [Bool] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,7 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
         
         for listName in listNameArray {
             nakamiArray.append(hashtags[listName] ?? "")
+            isFavArray.append(false)
         }
         // Do any additional setup after loading the view.
         
@@ -110,22 +113,32 @@ class ListViewController: UIViewController, UITableViewDataSource,UITableViewDel
     
     @IBAction func fav(button: UIButton){
         
+        // タップされたボタンのtableviewの選択行を取得
+        let cell = button.superview?.superview as! UITableViewCell
+        //row→何行目か？
+        let row = table.indexPath(for: cell)?.row
         
-        
-        favArray.append()
-
-        
-        if isFav == false {
+        key = listNameArray[row!]
+        if isFavArray[row!] == false {
+            
             button.setTitle("❤︎", for: UIControlState.normal)
-            isFav = true
-        }else if isFav == true {
+            favArray.append(key)
+            isFavArray[row!] = true
+            
+            
+        }else if isFavArray[row!] == true {
+            
             button.setTitle("♡",for:UIControlState.normal)
-            isFav = false
+            isFavArray[row!] = false
+            
+            let junban = favArray.index(of: key)
+            favArray.remove(at: junban!)
         }
-        userDefaults .set(favArray, forKey: "favArray")
+        userDefaults.set(favArray, forKey: "favArray")
         
-
+        
     }
+
 
 
     

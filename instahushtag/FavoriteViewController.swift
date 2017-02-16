@@ -34,6 +34,13 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         table.delegate = self
         
         
+        listNameArray = userDefaults.array(forKey: "favArray") as? [String] ?? []
+        
+        for listName in listNameArray {
+            nakamiArray.append(hashtags[listName] ?? "")
+        }
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -45,7 +52,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
     //セルの数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //セルの数をsongNameArrayの要素の数にする
-        return listNameArray.count
+        return nakamiArray.count
     }
 
     //ID付きのセルを取得して、セル付属のtextLabelに「テスト」と表示させてみる。
@@ -55,7 +62,7 @@ class FavoriteViewController: UIViewController, UITableViewDataSource, UITableVi
         let titleLabel: UILabel = cell?.viewWithTag(1) as! UILabel
         titleLabel.text = listNameArray[indexPath.row]
         let subTitleLabel: UILabel = cell?.viewWithTag(2) as! UILabel
-        subTitleLabel.text = subTitleArray[indexPath.row]
+        subTitleLabel.text = ""//subTitleArray[indexPath.row]
         return cell!
         
     }
