@@ -16,14 +16,16 @@ class TagsViewController: UIViewController {
     var index : Int = 0
     @IBOutlet var textView: UITextView!
     
+    @IBOutlet var button : UIButton!
      //ふぁぼを入れるための配列
     var favArray = [String]()
-    
+    var key : String = ""
+
     var titleName : String?
     var nakami : String?
-    
-    
+    @IBOutlet var copiedTextView : UITextView!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,15 +33,32 @@ class TagsViewController: UIViewController {
         
          titleTextfield.text = titleName
         textView.text = nakami
+        key = titleName!
         
+        copiedTextView.isScrollEnabled = true
         
+        favArray = userDefaults.array(forKey: "favArray") as? [String] ?? []
+        if favArray.index(of: key) != nil {
+            button.setTitle("❤︎", for: UIControlState.normal)
+            
+        }else {
+            
+            button.setTitle("♡",for:UIControlState.normal)
+            
+        }
+
 
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        copiedTextView.text = userDefaults.object(forKey: "copiedText") as? String
     }
     
     @IBAction func copyButton(){
     
     let pasteboard = UIPasteboard.general
+        
     
     // 文字列をコピーする
     pasteboard.setValue(nakami ?? "", forPasteboardType: "public.text")
@@ -47,12 +66,29 @@ class TagsViewController: UIViewController {
     // コピーした文字列を取り出し
     let copiedText = pasteboard.value(forPasteboardType: "public.text") as! String
         print(copiedText)
+        
+        
+        //textViewに貼り付ける
+        copiedTextView.text = copiedTextView.text + copiedText
+        userDefaults.set(copiedTextView.text, forKey: "copiedText")
+        
     }
 
     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+                super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
+        
+            }
+    
+    @IBAction func copyAll() {
+        let pasteboardAll = UIPasteboard.general
+        pasteboardAll.setValue(copiedTextView.text ?? "", forPasteboardType: "public.text")
+        
+    }
+    
+    @IBAction func resetAll() {
+        copiedTextView.text = ""
+        userDefaults.set(copiedTextView.text, forKey: "copiedText")
     }
     
     @IBAction func instagram(){
@@ -61,15 +97,29 @@ class TagsViewController: UIViewController {
     }
     
     @IBAction func fav(button: UIButton){
+        favArray = userDefaults.array(forKey: "favArray") as? [String] ?? []
+        key = titleName!
+
         
-        userDefaults .set(true, forKey: "Key")
-        userDefaults.set(1, forKey: "Key")
-        userDefaults .set("TEST", forKey: "Key")
-        
+        if favArray.index(of: key) == nil {
+            button.setTitle("❤︎", for: UIControlState.normal)
+            favArray.append(key)
+            
+            
+        }else {
+            
+            button.setTitle("♡",for:UIControlState.normal)
+            
+            let junban = favArray.index(of: key)
+            favArray.remove(at: junban!)
+        }
+
         
        // favArray.append()
         
-        button.setTitle("❤︎", for: UIControlState.normal)
+        userDefaults.set(favArray, forKey: "favArray")
+        
+
     }
 
 

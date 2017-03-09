@@ -11,6 +11,7 @@ import UIKit
 class GenreViewController: UIViewController {
     
     var tag: Int = 0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
